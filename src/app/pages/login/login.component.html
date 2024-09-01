@@ -1,0 +1,35 @@
+<section>
+    <div class="container">
+        <h2>Login</h2>
+        <form>
+            <div class="form-group">
+                <input (keydown)="onSubmit(email, password, $event)" #email type="text" placeholder="E-mail" required>
+                @if (emailError) {
+                    <div class="error-message">{{ emailError }}</div>
+                }
+            </div>
+
+            <div class="form-group">
+                <input (keydown)="onSubmit(email, password, $event)" #password type="password" placeholder="Password" required>
+                @if (passwordError) {
+                    <div class="error-message">{{ passwordError }}</div>
+                }
+            </div>
+
+            @if (errorMessage) {
+                <div class="error-message">{{ errorMessage }}</div>
+            }
+            @if (!loading) {
+                <button (click)="onSubmit(email, password)" type="button">Login</button>
+            } @else {
+                <button disable="true" type="button">Loading</button>
+            }
+
+            <div class="register-link">
+                <p>Don't have an account? <a routerLink="/register">Register here</a></p>
+            </div>
+
+            <button routerLink="/home" type="button">Entrar sem registrar</button>
+        </form>
+    </div>
+</section>

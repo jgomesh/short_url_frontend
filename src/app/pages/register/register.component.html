@@ -1,0 +1,65 @@
+<section>
+    <div class="container">
+      <h2>Register</h2>
+      @if (successMessage) {
+        <span>{{successMessage}}</span>
+      } @else {
+        <form>
+          <input #name 
+                 [class.input-error]="nameError" 
+                 type="text" 
+                 placeholder="Name" 
+                 (keydown)="onSubmit(name, email, password, confirmPassword,$event )"
+                 required>
+          @if (nameError) {
+            <div class="error-message">Name is required!</div>
+          }
+  
+          <input #email 
+                 [class.input-error]="emailError" 
+                 type="email" 
+                 placeholder="E-mail" 
+                 (keydown)="onSubmit(name, email, password, confirmPassword,$event )"
+                 required>
+          @if (emailError) {
+            <div class="error-message">Invalid email format!</div>
+          }
+  
+          <input #password 
+                 [class.input-error]="passwordError" 
+                 type="password"
+                 (keydown)="onSubmit(name, email, password, confirmPassword,$event )"
+                 placeholder="Password" 
+                 required>
+          @if (passwordError) {
+            <div class="error-message">
+              Password must be at least 6 characters long!
+            </div>
+          }
+  
+          <input #confirmPassword 
+                 [class.input-error]="passwordError" 
+                 type="password"
+                 (keydown)="onSubmit(name, email, password, confirmPassword,$event )"
+                 placeholder="Confirm Password" 
+                 required>
+          @if (passwordError) {
+            <div class="error-message">Passwords do not match or are empty!</div>
+          }
+          @if (loading) {
+            <button 
+            [attr.disabled]="loading"
+            type="button">Loading...</button>
+          } @else {
+            <button (click)="onSubmit(name, email, password, confirmPassword)" 
+                  type="button">Register</button>
+  
+          }
+              <div class="login-link">
+                Already have an account? <nav></nav><a routerLink="/login">Login here</a>
+              </div>
+        </form>
+      }
+    </div>
+  </section>
+  

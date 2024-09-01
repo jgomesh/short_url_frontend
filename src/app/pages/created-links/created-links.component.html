@@ -1,0 +1,63 @@
+<section>
+    <div class="cmp-home">
+      <div class="cmp-home--titlecontainer">
+        <h2>Links Criados</h2>
+      </div>
+  
+      <!-- Exibição de mensagem de ausência de links -->
+      @if (!loading && links.length === 0) {
+        <div class="no-links">
+          <p>Nenhum link encontrado.</p>
+        </div>
+      }
+  
+      <!-- Exibição de mensagem de carregamento -->
+      @if (loading) {
+        <div class="loading">
+          <p>Loading...</p>
+        </div>
+      }
+  
+      <!-- Listagem de links -->
+      @if (!loading && links.length > 0) {
+        <ul>
+          @for (link of links; track link.id) {
+            <li>
+              <p>
+                URL Original: 
+                @if (!link.editing) {
+                  <span>{{ link.original_url }}</span>
+                }
+                @if (link.editing) {
+                  <input [attr.id]="'newOriginalUrl-' + link.id" [value]="link.newOriginalUrl" type="text" />
+                }
+              </p>
+              <p>
+                URL Encurtada: 
+                <a [href]="httpString + '/' + link.short_code" target="_blank" (click)="trackClick(link.id, $event)">
+                  {{ httpString }}/{{ link.short_code }}
+                </a>
+              </p>
+              <p>Cliques: {{ link.click_count }}</p>
+              @if (!link.editing) {
+                @if (!link.loading) {
+                  <button (click)="editLink(link)">Editar</button>
+                  <button (click)="deleteLink(link.short_code)">Deletar</button>
+                } @else {
+                  <button disabled>Carregando...</button>
+                }
+              }
+              @if (link.editing) {
+                @if (!link.loading) {
+                  <button (click)="saveLink(link, getInputValue(link.id))">Salvar</button>
+                } @else {
+                  <button disabled>Carregando...</button>
+                }
+              }
+            </li>
+          }
+        </ul>
+      }
+    </div>
+  </section>
+  
