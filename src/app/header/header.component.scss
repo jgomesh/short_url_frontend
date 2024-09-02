@@ -1,12 +1,12 @@
 .cmp-header {
-    padding-bottom: 8rem;
+    padding-bottom: 5rem;
 }
 
 .cmp-header--nav {
     display: flex;
-    width: calc(100% - 4rem);
+    width: calc(100% - 2rem);
     justify-content: space-between;
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     align-items: center;
     background-color: rgb(10, 10, 10);
     position: fixed;
@@ -18,7 +18,7 @@
 .cmp-header--limit-container {
     display: flex;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1280px;
     justify-content: space-between;
     align-items: center;
     margin: auto;
@@ -71,5 +71,13 @@
     .cmp-header--nav-logged-items {
         flex-direction: column;
         gap: 0.5rem;
+    }
+
+    .cmp-header--nav {
+        padding: 1rem;
+        width: calc(100% - 2rem);
+    }
+    .cmp-header {
+        padding-bottom: 8rem;
     }
 }
