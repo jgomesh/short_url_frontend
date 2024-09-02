@@ -1,9 +1,15 @@
 .cmp-home {
-    background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
     padding: 20px;
     min-height: 800px;
+    max-width: 1280px;
+    margin: auto;
     margin-top: 2rem;
     border-radius: 8px;
+
+    &--section {
+        background: linear-gradient(135deg, #f5f5f5, #acaaaa);
+
+    }
 
     &--titlecontainer {
         display: flex;
@@ -45,14 +51,15 @@
             th {
                 padding: 12px;
                 text-align: left;
-                border-right: 1px solid white ;
+                border-right: 1px solid white;
+
                 &:first-of-type {
                     border-radius: 8px 0 0 0;
                 }
 
                 &:last-of-type {
                     border-radius: 0 8px 0 0;
-                    border-right: none
+                    border-right: none;
                 }
             }
         }
@@ -61,13 +68,14 @@
             tr {
                 background-color: #fff;
                 border-bottom: 1px solid #ccc;
+
                 &:hover {
                     background-color: #f0f0f0;
                 }
-                
+
                 td {
                     padding: 12px;
-                    border-right: 1px solid rgb(168, 166, 166);
+                    border-right: 1px solid #a8a6a6;
                 }
 
                 a {
@@ -93,7 +101,6 @@
                 }
 
                 input {
-                    width: 100%;
                     padding: 8px;
                     border: 1px solid #ccc;
                     border-radius: 4px;
@@ -101,8 +108,117 @@
             }
         }
     }
-}
 
-.cmp-home--edit-button {
-    margin-right: 1rem;
+    /* Estilos para dispositivos móveis */
+    @media (max-width: 768px) {
+        background-color: white;
+        &--titlecontainer {
+            flex-direction: column;
+            align-items: flex-start;
+
+            h2 {
+                font-size: 20px;
+            }
+
+            button {
+                margin-top: 10px;
+                width: 100%;
+            }
+        }
+
+        .links-table {
+            thead {
+                th {
+                    font-size: 14px;
+                    padding: 8px;
+                }
+            }
+
+            tbody {
+                td {
+                    font-size: 14px;
+                    padding: 8px;
+                }
+
+                button {
+                    padding: 4px 8px;
+                }
+            }
+        }
+    }
+
+    /* Estilos responsivos */
+    @media (max-width: 768px) {
+        .links-table {
+            display: block;
+            /* Transforma a tabela em blocos para dispositivos móveis */
+
+            thead {
+                display: none;
+                /* Remove o cabeçalho da tabela */
+            }
+
+            tbody {
+                display: block;
+
+                tr {
+                    display: block;
+                    /* Cada linha é transformada em um bloco */
+                    margin-bottom: 20px;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    border-radius: 8px;
+                    background-color: #fff;
+
+                    td {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding: 8px 0;
+                        border: none;
+                        border-right: none;
+                        font-size: 14px;
+
+                        &:before {
+                            content: attr(data-label);
+                            /* Usando os títulos das colunas como labels */
+                            font-weight: bold;
+                            color: #ec6724;
+                            margin-right: 10px;
+                        }
+                    }
+
+                    button {
+                        width: 100%;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .links-table {
+            tbody {
+                tr {
+                    td {
+                        font-size: 12px;
+                    }
+
+                    button {
+                        padding: 4px 8px;
+                        font-size: 12px;
+                    }
+
+                    input {
+                        padding: 6px;
+                    }
+                }
+            }
+        }
+    }
+
+    &--edit-button {
+        margin-right: 1rem;
+    }
 }

@@ -1,4 +1,4 @@
-<section>
+<section class="cmp-home--section">
     <div class="cmp-home">
       <div class="cmp-home--titlecontainer">
         <h2>Links Criados</h2>
@@ -45,7 +45,7 @@
                     {{ httpString }}/{{ link.short_code }}
                   </a>
                 </td>
-                <td>{{ link.click_count }}</td>
+                <td>Cliques: {{ link.click_count }}</td>
                 <td>
                   @if (!link.editing) {
                     @if (!link.loading) {
@@ -68,5 +68,5 @@
         </table>
       }
     </div>
-  </section>
+</section>
   

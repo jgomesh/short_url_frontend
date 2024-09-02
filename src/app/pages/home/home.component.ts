@@ -27,11 +27,19 @@ export class HomeComponent {
         }
     }
 
-    onSubmit(original_url: string) {
-        if (original_url && !this.loading) {
-            this.loading = true;
-            this.postUrl(original_url);
-        }
+    onSubmit(original_url: string, event?: any) {
+		if(event && event.key === "Enter") {
+			event.preventDefault();
+			if (original_url && !this.loading) {
+				this.loading = true;
+				this.postUrl(original_url);
+			}
+		} else if (!event) {
+			if (original_url && !this.loading) {
+				this.loading = true;
+				this.postUrl(original_url);
+			}
+		}
     }
 
     postUrl(original_url: string) {

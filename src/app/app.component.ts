@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms'; 
 import { RouterOutlet, RouterLink } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
-
+import { FooterComponent } from './footer/footer.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, RouterLink, HeaderComponent],
+  imports: [RouterOutlet, FormsModule, RouterLink, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

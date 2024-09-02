@@ -7,12 +7,12 @@
             }
         </div>
         <div class="url-shortener">
-            <form (ngSubmit)="onSubmit(urlInput.value)">
-                <input #urlInput type="text" placeholder="Insira a URL para encurtar" (keydown.enter)="onSubmit(urlInput.value)" />
+            <form >
+                <input #urlInput type="text" placeholder="Insira a URL para encurtar" (keydown)="onSubmit(urlInput.value, $event)" />
                 @if (loading) {
                     <button disabled="true">Loading... (Sometimes server its slow case its free)</button>
                 } @else {
-                    <button type="submit">Encurtar URL</button>
+                    <button (click)="onSubmit(urlInput.value)" type="button">Encurtar URL</button>
                 }
             </form>
         </div>
