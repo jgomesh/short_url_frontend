@@ -19,6 +19,7 @@
     margin: 0 auto;
     justify-content: center;
     align-items: center;
+
     form {
         display: flex;
         flex-direction: column;
@@ -70,19 +71,26 @@ h2 {
     border: 1px solid white;
     padding: 2rem;
     border-radius: 4px;
+
     p {
         font-size: 16px;
         color: white;
     }
 
     a {
-        color: yellow;
+        color: rgb(21, 46, 158);
         font-weight: bold;
         text-decoration: none;
     }
 }
 
 @media screen and (max-width:720px) {
+
+    .cmp-home {
+        margin-top: 0rem;
+        margin-bottom: 2rem;
+    }
+
     .cmp-home--container {
         max-width: 300px;
     }
