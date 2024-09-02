@@ -1,27 +1,26 @@
-<section>
-    <div class="cmp-home">
+<section class="cmp-home">
+    <div class="cmp-home--container">
         <div class="cmp-home--titlecontainer">
-            <h2>Encurtador e Contabilizador de Acessos </h2>
-            @if(!userToken) {
-                <span>(Access Count e salvar as urls está disponível para usuários cadastrados)</span>
+            <h2>Encurtador de URL's e Contabilizador de Acessos</h2>
+            @if (!userToken) {
+                <span>(Contagem de acessos e salvar URLs está disponível para usuários cadastrados)</span>
             }
         </div>
         <div class="url-shortener">
-            <input #urlInput type="text" placeholder="Insira a URL para encurtar" />
-            @if (loading) {
-                <button disabled="true">Loading...</button>
-            } @else {
-                <button (click)="onSubmit(urlInput.value)">Encurtar URL</button>
+            <form (ngSubmit)="onSubmit(urlInput.value)">
+                <input #urlInput type="text" placeholder="Insira a URL para encurtar" (keydown.enter)="onSubmit(urlInput.value)" />
+                @if (loading) {
+                    <button disabled="true">Loading...</button>
+                } @else {
+                    <button type="submit">Encurtar URL</button>
+                }
+            </form>
+        </div>
+        <div class="result-container">
+            <p>@if (!successMessage) { Comece preenchendo o input. } @else { {{ successMessage }} }</p>
+            @if (shortUrl) {
+                <a [href]="shortUrl" target="_blank">{{ shortUrl }}</a>
             }
         </div>
-        
-        @if (successMessage) {
-            <div class="result-container">
-                <p>{{ successMessage }}</p>
-                @if (shortUrl) {
-                    <a [href]="shortUrl" target="_blank">{{shortUrl}}</a>
-                }
-            </div>
-        }
     </div>
 </section>
