@@ -1,5 +1,6 @@
 .cmp-register {
   display: flex;
+  margin-top: 2rem;
 }
 
 .cmp-register--container-limit {
@@ -98,6 +99,9 @@
 
 .cmp-register--container-image {
   width: 50%;
+  img {
+    max-width: 700px;
+  }
 }
 
 @media screen and (max-width: 720px) {
