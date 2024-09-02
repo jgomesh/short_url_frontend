@@ -49,7 +49,7 @@
           @if (loading) {
             <button 
             [attr.disabled]="loading"
-            type="button">Loading...</button>
+            type="button">Loading... (Sometimes server its slow case its free)</button>
           } @else {
             <button (click)="onSubmit(name, email, password, confirmPassword)" 
                   type="button">Register</button>

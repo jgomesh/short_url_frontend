@@ -1,3 +1,108 @@
 .cmp-home {
-    margin-top: 4rem;
+    background: linear-gradient(135deg, #f5f5f5, #e0e0e0);
+    padding: 20px;
+    min-height: 800px;
+    margin-top: 2rem;
+    border-radius: 8px;
+
+    &--titlecontainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+
+        h2 {
+            font-size: 24px;
+            color: #ec6724;
+        }
+
+        button {
+            background-color: #ec6724;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    }
+
+    .no-links,
+    .loading {
+        text-align: center;
+        font-size: 18px;
+        color: #666;
+    }
+
+    .links-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+
+        thead {
+            background-color: #ec6724;
+            color: #fff;
+
+            th {
+                padding: 12px;
+                text-align: left;
+                border-right: 1px solid white ;
+                &:first-of-type {
+                    border-radius: 8px 0 0 0;
+                }
+
+                &:last-of-type {
+                    border-radius: 0 8px 0 0;
+                    border-right: none
+                }
+            }
+        }
+
+        tbody {
+            tr {
+                background-color: #fff;
+                border-bottom: 1px solid #ccc;
+                &:hover {
+                    background-color: #f0f0f0;
+                }
+                
+                td {
+                    padding: 12px;
+                    border-right: 1px solid rgb(168, 166, 166);
+                }
+
+                a {
+                    color: #0066cc;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                button {
+                    background-color: #ec6724;
+                    color: #fff;
+                    padding: 6px 12px;
+                    border: none;
+                    border-radius: 4px;
+                    cursor: pointer;
+
+                    &:disabled {
+                        background-color: #cccccc;
+                    }
+                }
+
+                input {
+                    width: 100%;
+                    padding: 8px;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+}
+
+.cmp-home--edit-button {
+    margin-right: 1rem;
 }

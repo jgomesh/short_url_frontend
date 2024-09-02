@@ -10,7 +10,7 @@
             <form (ngSubmit)="onSubmit(urlInput.value)">
                 <input #urlInput type="text" placeholder="Insira a URL para encurtar" (keydown.enter)="onSubmit(urlInput.value)" />
                 @if (loading) {
-                    <button disabled="true">Loading...</button>
+                    <button disabled="true">Loading... (Sometimes server its slow case its free)</button>
                 } @else {
                     <button type="submit">Encurtar URL</button>
                 }

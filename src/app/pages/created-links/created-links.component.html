@@ -1,7 +1,8 @@
 <section>
     <div class="cmp-home">
       <div class="cmp-home--titlecontainer">
-        <h2>Links Criados</h2><button routerLink="/home">+</button>
+        <h2>Links Criados</h2>
+        <button routerLink="/home">+</button>
       </div>
   
       <!-- Exibição de mensagem de ausência de links -->
@@ -14,49 +15,57 @@
       <!-- Exibição de mensagem de carregamento -->
       @if (loading) {
         <div class="loading">
-          <p>Loading...</p>
+          <p>Loading... (Sometimes server its slow case its free) </p>
         </div>
       }
   
-      <!-- Listagem de links -->
+      <!-- Listagem de links em formato de tabela -->
       @if (!loading && links.length > 0) {
-        <ul>
-          @for (link of links; track link.id) {
-            <li>
-              <p>
-                URL Original: 
-                @if (!link.editing) {
-                  <span>{{ link.original_url }}</span>
-                }
-                @if (link.editing) {
-                  <input [attr.id]="'newOriginalUrl-' + link.id" [value]="link.newOriginalUrl" type="text" />
-                }
-              </p>
-              <p>
-                URL Encurtada: 
-                <a [href]="httpString + '/' + link.short_code" target="_blank" (click)="trackClick(link.id, $event)">
-                  {{ httpString }}/{{ link.short_code }}
-                </a>
-              </p>
-              <p>Cliques: {{ link.click_count }}</p>
-              @if (!link.editing) {
-                @if (!link.loading) {
-                  <button (click)="editLink(link)">Editar</button>
-                  <button (click)="deleteLink(link.short_code)">Deletar</button>
-                } @else {
-                  <button disabled>Carregando...</button>
-                }
-              }
-              @if (link.editing) {
-                @if (!link.loading) {
-                  <button (click)="saveLink(link, getInputValue(link.id))">Salvar</button>
-                } @else {
-                  <button disabled>Carregando...</button>
-                }
-              }
-            </li>
-          }
-        </ul>
+        <table class="links-table">
+          <thead>
+            <tr>
+              <th>URL Original</th>
+              <th>URL Encurtada</th>
+              <th>Cliques</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (link of links; track link.id) {
+              <tr>
+                <td>
+                  @if (!link.editing) {
+                    <span>{{ link.original_url }}</span>
+                  } @else {
+                    <input [attr.id]="'newOriginalUrl-' + link.id" [value]="link.newOriginalUrl" type="text" />
+                  }
+                </td>
+                <td>
+                  <a [href]="httpString + '/' + link.short_code" target="_blank" (click)="trackClick(link.id, $event)">
+                    {{ httpString }}/{{ link.short_code }}
+                  </a>
+                </td>
+                <td>{{ link.click_count }}</td>
+                <td>
+                  @if (!link.editing) {
+                    @if (!link.loading) {
+                      <button class="cmp-home--edit-button" (click)="editLink(link)">Editar</button>
+                      <button (click)="deleteLink(link.short_code)">Deletar</button>
+                    } @else {
+                      <button disabled>Carregando...</button>
+                    }
+                  } @else {
+                    @if (!link.loading) {
+                      <button (click)="saveLink(link, getInputValue(link.id))">Salvar</button>
+                    } @else {
+                      <button disabled>Carregando...</button>
+                    }
+                  }
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
       }
     </div>
   </section>
