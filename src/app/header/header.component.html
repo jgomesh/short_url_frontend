@@ -1,0 +1,21 @@
+<header class="cmp-header">
+    <nav class="cmp-header--nav">
+        <div  class="cmp-header--limit-container">
+            <a routerLink="/home"><img src="assets/logo-branco.png" alt="Logo">
+            </a>
+            <div class="cmp-header--nav-logged-items">
+                @if (!appComponent.token) {
+                  <a class="cmp-header--nav-item-login" routerLink="/login">Login</a>
+                }
+                @if (appComponent.token) {
+                  <a routerLink="/created-links">My URL´s</a>
+                  <button (click)="logout()">Logout</button>
+                }
+            </div>
+        </div>
+    </nav>
+</header>
+
+  
+<router-outlet></router-outlet>
+  

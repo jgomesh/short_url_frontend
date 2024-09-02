@@ -1,0 +1,75 @@
+.cmp-header {
+    padding-bottom: 8rem;
+}
+
+.cmp-header--nav {
+    display: flex;
+    width: calc(100% - 4rem);
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    align-items: center;
+    background-color: rgb(10, 10, 10);
+    position: fixed;
+    img {
+        max-width: 100px;
+    }
+}
+
+.cmp-header--limit-container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+.cmp-header--nav-item-login {
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    font-family: "Segoe UI", Tahoma, "Geneva", Verdana, sans-serif;
+    font-weight: 700;
+    background-color: rgba(236, 103, 36);
+    border-radius: 8px;
+    padding: 0.3rem 1rem;
+    opacity: 100%;
+    transition: .3s;
+    &:hover {
+        opacity: 80%;
+    }
+}
+
+.cmp-header--nav-logged-items {
+    display: flex;
+    gap: 2rem;
+    a , button {
+        text-decoration: none;
+        cursor: pointer;
+        color: white;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 700;
+        border-radius: 8px;
+        padding: 0.3rem 1rem;
+        opacity: 100%;
+        transition: .3s;
+        &:hover {
+            opacity: 80%;
+        }
+    }
+
+    button {
+        background-color: red;
+    }
+
+    a {
+        background-color: rgba(236, 103, 36);
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .cmp-header--nav-logged-items {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

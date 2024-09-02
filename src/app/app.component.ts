@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms'; 
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterLink } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, RouterLink],
+  imports: [RouterOutlet, FormsModule, RouterLink, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  token: string = "";
+  token: string = localStorage.getItem('token') || '';
 
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.token = localStorage.getItem('token') || "";
+    this.token = localStorage.getItem('token') || '';
   }
 
   setToken(newToken: string) {
@@ -25,7 +27,7 @@ export class AppComponent implements OnInit {
   }
 
   logout() {
-    this.token = "";
+    this.token = '';
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
   }

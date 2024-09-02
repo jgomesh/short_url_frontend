@@ -14,7 +14,7 @@ import { AppComponent } from '../../app.component';
 	imports: [RouterOutlet, RouterLink],
 })
 export class HomeComponent {
-	userToken: string = "";
+	userToken: string = localStorage.getItem('token') || "";;
 	loading: boolean = false;
 	shortUrl: string | null = null;
 	successMessage: string | null = null;

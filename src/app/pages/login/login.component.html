@@ -20,6 +20,7 @@
                 <div class="error-message">{{ errorMessage }}</div>
             }
             @if (!loading) {
+                <button routerLink="/home" type="button">Entrar sem registrar</button>
                 <button (click)="onSubmit(email, password)" type="button">Login</button>
             } @else {
                 <button disable="true" type="button">Loading</button>
@@ -29,7 +30,7 @@
                 <p>Don't have an account? <a routerLink="/register">Register here</a></p>
             </div>
 
-            <button routerLink="/home" type="button">Entrar sem registrar</button>
+
         </form>
     </div>
 </section>

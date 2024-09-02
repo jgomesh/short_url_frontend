@@ -1,12 +1,3 @@
-<nav>
-  @if (!token) {
-    <a routerLink="/login">Login</a>
-  }
-  <a routerLink="/home">Home</a>
-  @if (token) {
-    <a routerLink="/created-links">Saved URL´s </a>
-    <button (click)="logout()">Logout</button>
-  }
-</nav>
+<app-header></app-header>
 
 <router-outlet></router-outlet>
